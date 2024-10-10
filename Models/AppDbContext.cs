@@ -118,13 +118,101 @@ namespace VehicleInventoryProj.Models
                     Model = "bZ4X",
                     Year = 2024,
                     Build = "SUV",
-                    FuelType = "Hyrbid",
-                    MSRP = 40970,
-                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/highlanderhybrid/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
-                    CityMPG = 0,
-                    HwyMPG = 0,
+                    FuelType = "Electric",
+                    MSRP = 43070,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/bz4x/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
                     InStock = true,
-                    ColorId = 6
+                    ColorId = 3
+                },
+                new Vehicle
+                {
+                    VehicleId = 7,
+                    Make = "Toyota",
+                    Model = "GR86",
+                    Year = 2024,
+                    Build = "Sedan",
+                    FuelType = "Gas",
+                    MSRP = 29300,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/gr86/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 20,
+                    HwyMPG = 26,
+                    InStock = true,
+                    ColorId = 1
+                },
+                new Vehicle
+                {
+                    VehicleId = 8,
+                    Make = "Toyota",
+                    Model = "GR Supra",
+                    Year = 2025,
+                    Build = "Sedan",
+                    FuelType = "Gas",
+                    MSRP = 56250,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/grsupra/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 23,
+                    HwyMPG = 31,
+                    InStock = false,
+                    ColorId = 3
+                },
+                new Vehicle
+                {
+                    VehicleId = 9,
+                    Make = "Toyota",
+                    Model = "Mirai",
+                    Year = 2025,
+                    Build = "Sedan",
+                    FuelType = "Hydrogen",
+                    MSRP = 50190,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/mirai/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 76,
+                    HwyMPG = 71,
+                    InStock = true,
+                    ColorId = 4
+                },
+                new Vehicle
+                {
+                    VehicleId = 10,
+                    Make = "Toyota",
+                    Model = "Venza",
+                    Year = 2024,
+                    Build = "SUV",
+                    FuelType = "Hybrid",
+                    MSRP = 35070,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/venza/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 40,
+                    HwyMPG = 37,
+                    InStock = true,
+                    ColorId = 3
+                },
+                new Vehicle
+                {
+                    VehicleId = 11,
+                    Make = "Toyota",
+                    Model = "Crown",
+                    Year = 2025,
+                    Build = "Sedan",
+                    FuelType = "Hybrid",
+                    MSRP = 41440,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/toyotacrown/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 42,
+                    HwyMPG = 41,
+                    InStock = true,
+                    ColorId = 5
+                },
+                new Vehicle
+                {
+                    VehicleId = 12,
+                    Make = "Toyota",
+                    Model = "Land Cruiser",
+                    Year = 2025,
+                    Build = "SUV",
+                    FuelType = "Hybrid",
+                    MSRP = 56450,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/landcruiser/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 22,
+                    HwyMPG = 25,
+                    InStock = true,
+                    ColorId = 2
                 }
             );
         }

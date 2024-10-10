@@ -77,7 +77,14 @@ namespace VehicleInventoryProj.Migrations
                     { 2, "Truck", 21, 2, "Gas", 26, null, true, 31500, "Toyota", "Tacoma", 2024 },
                     { 3, "Sedan", 57, 3, "Hybrid", 56, null, false, 27950, "Toyota", "Prius", 2024 },
                     { 4, "Truck", 18, 4, "Gas", 23, null, false, 40090, "Toyota", "Tundra", 2024 },
-                    { 5, "SUV", 36, 6, "Hyrbid", 35, null, true, 40970, "Toyota", "Highlander Hybrid", 2024 }
+                    { 5, "SUV", 36, 6, "Hyrbid", 35, null, true, 40970, "Toyota", "Highlander Hybrid", 2024 },
+                    { 6, "SUV", null, 3, "Electric", null, null, true, 43070, "Toyota", "bZ4X", 2024 },
+                    { 7, "Sedan", 20, 1, "Gas", 26, null, true, 29300, "Toyota", "GR86", 2024 },
+                    { 8, "Sedan", 23, 3, "Gas", 31, null, false, 56250, "Toyota", "GR Supra", 2025 },
+                    { 9, "Sedan", 76, 4, "Hydrogen", 71, null, true, 50190, "Toyota", "Mirai", 2025 },
+                    { 10, "SUV", 40, 3, "Hyrbid", 37, null, true, 35070, "Toyota", "Venza", 2024 },
+                    { 11, "Sedan", 42, 5, "Hybrid", 41, null, true, 41440, "Toyota", "Crown", 2025 },
+                    { 12, "SUV", 22, 2, "Hybrid", 25, null, true, 56450, "Toyota", "Land Cruiser", 2025 },
                 });
 
             migrationBuilder.CreateIndex(
