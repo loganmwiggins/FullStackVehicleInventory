@@ -316,38 +316,6 @@ ul {
 }
 
 
-
-/* VEHICLE CARDS CSS*/
-
-/* Hover effect for vehicle cards */
-.vehicle-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
-}
-
-    /* Apply hover effect to the card itself */
-    .vehicle-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-
-/*VEHICLE DETAILS CSS*/
-.back-arrow {
-    position: relative;
-    top: 20px; /* Move the arrow below the navbar */
-    left: 20px;
-    text-decoration: none;
-}
-
-    .back-arrow i {
-        color: #666;
-        transition: color 0.3s ease;
-    }
-
-    .back-arrow:hover i {
-        color: #333;
-    }
-
 .header {
     text-align: center;
 }
