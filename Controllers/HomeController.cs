@@ -16,7 +16,7 @@ namespace VehicleInventoryProj.Controllers
             _context = context;
         }
 
-        [HttpGet("/home")]
+        //[HttpGet("/home")]
         public IActionResult Index()
         {
             return View();
