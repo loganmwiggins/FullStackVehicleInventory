@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Manage Vehicles";
+}
+@model List<Vehicle>
+
+<div class="header">
+    <h1 class="display-4"><b>Manage Inventory</b></h1>
+</div>
+<br />
+
+<div class="table-ctnr">
+    @foreach (var vehicle in Model)
+    {
+        <div class="table-row">
+            <img src="@vehicle.ImgPath" />
+            <p>@vehicle.Year @vehicle.Make @vehicle.Model</p>
+
+            <div class="row-btns">
+                <button></button>
+            </div>
+        </div>
+    }
+</div>

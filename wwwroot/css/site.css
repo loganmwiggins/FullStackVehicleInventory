@@ -216,6 +216,35 @@ body, html {
     }
 
 
+/* MANAGE TABLE */
+.table-ctnr {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, .25) !important;
+    margin-bottom: 1rem;
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+
+    border-bottom: 1px solid lightgrey;
+
+    img {
+        max-width: 100px;
+        margin-right: 1rem;
+    }
+
+    p { margin: 0; }
+}
+    .table-row:last-child {
+        border: none;
+    }
+
+
 
 
 
