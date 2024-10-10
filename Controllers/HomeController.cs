@@ -16,11 +16,11 @@ namespace VehicleInventoryProj.Controllers
             _context = context;
         }
 
-        //[HttpGet("/home")]
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        [HttpGet("/home")]
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         //[HttpGet("/movies")]
         //public IActionResult AllMovies()

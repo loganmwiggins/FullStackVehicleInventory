@@ -2,11 +2,7 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -37,19 +33,7 @@ ul {
     gap: 1.5rem;
 }
 
-/* All Movies page */
-.card-ctnr {
-    display: flex;
-    align-items: center;
-    flex-flow: wrap;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Nav */
+/* NAV */
 .navbar-nav {
     display: flex;
     align-items: center;
@@ -63,4 +47,19 @@ ul {
 .nav-item {
     display: flex;
     align-items: center;
+}
+
+
+
+
+/* HOME PAGE CSS*/
+
+
+
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 }

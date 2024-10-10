@@ -7,9 +7,11 @@ namespace VehicleInventoryProj.Models
         public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options) {}
 
+        // Tables
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Color> Colors { get; set; }
 
+        // Configuration
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(connectionString:
