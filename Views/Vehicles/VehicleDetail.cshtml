@@ -3,10 +3,14 @@
     ViewData["Title"] = $"{Model.Make} {Model.Model} Details";
 }
 
-    <!-- Header Section -->
-    <div class="header mb-4">
-        <h1 class="display-4"><b>@Model.Year @Model.Make @Model.Model</b></h1>
+    <!-- Back Arrow below the navbar -->
+    <a href="/vehicles" class="btn btn-link text-dark back-arrow" aria-label="Back to All Vehicles">
+        <i class="fas fa-arrow-left fa-2x"></i>
+    </a>
 
+    <!-- Header Section -->
+    <div class="header mb-4 text-center">
+        <h1 class="display-4"><b>@Model.Year @Model.Make @Model.Model</b></h1>
     </div>
 
     <!-- Vehicle Image and Information -->
@@ -28,12 +32,7 @@
                 <li class="list-group-item"><strong>MSRP:</strong> @Model.MSRP.ToString("C")</li>
                 <li class="list-group-item"><strong>In Stock:</strong> @(Model.InStock ? "Yes" : "No")</li>
             </ul>
-
-            <div class="mt-4">
-                <!-- Lighter gray button with dark text -->
-                <a href="/vehicles" class="btn btn-light text-dark border border-dark"><i class="fas fa-arrow-left"></i> Back to All Vehicles</a>
-            </div>
         </div>
     </div>
-<!-- Font Awesome for icons -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

@@ -13,17 +13,18 @@
         @foreach (var vehicle in Model)
         {
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="@vehicle.ImgPath" class="card-img-top" alt="@vehicle.Make @vehicle.Model" draggable="false">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title"><b>@vehicle.Year @vehicle.Make @vehicle.Model</b></h5>
-                        <p class="card-text text-secondary">Starting MSRP: <b>@vehicle.MSRP.ToString("C")</b></p>
+                <a asp-controller="Vehicles" asp-action="VehicleDetail" asp-route-vehicle_id="@vehicle.VehicleId" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm vehicle-card">
+                        <img src="@vehicle.ImgPath" class="card-img-top" alt="@vehicle.Make @vehicle.Model" draggable="false">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-dark"><b>@vehicle.Year @vehicle.Make @vehicle.Model</b></h5>
+                            <p class="card-text text-secondary">Starting MSRP: <b>@vehicle.MSRP.ToString("C")</b></p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         }
     </div>
 </div>
 
-<!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
