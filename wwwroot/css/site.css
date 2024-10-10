@@ -46,9 +46,27 @@ ul {
     gap: 1.5rem;
 
     h1 {
-        font-size: 28px;
+        font-size: 2rem;
         font-weight: 400;
     }
+}
+
+.btn-blue {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    background: #005aff;
+    color: white;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    margin: 1rem 0;
+    transition: background .1s ease-in-out;
+}
+.btn-blue:hover {
+    background: #024bd1;
+    transition: background .1s ease-in-out;
 }
 
 /* NAV */
@@ -201,21 +219,48 @@ ul {
 .table-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 1rem;
-
     border-bottom: 1px solid lightgrey;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .row-btns {
+        margin-right: 1rem;
+
+        button {
+            border: none;
+            background: none;
+            padding: 0;
+            color: #555;
+            transition: scale .1s ease-in-out;
+        }
+        button:hover {
+            color: #333;
+            scale: 115%;
+            transition: scale, color .1s ease-in-out;
+        }
+    }
 
     img {
         max-width: 100px;
-        margin-right: 1rem;
+        margin-right: 0 !important;
     }
 
-    p { margin: 0; }
-}
-    .table-row:last-child {
-        border: none;
+    p {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.2rem;
     }
+}
+.table-row:last-child {
+    border: none;
+}
 
 
 /* MANAGE TABLE */

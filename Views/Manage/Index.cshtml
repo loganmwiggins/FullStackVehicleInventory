@@ -3,21 +3,36 @@
 }
 @model List<Vehicle>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div class="header">
     <h1 class="display-4"><b>Manage Inventory</b></h1>
 </div>
-<br />
+@* <br /> *@
+
+<button type="button" class="btn-blue">
+    <i class="fas fa-plus fa-lg"></i>
+    Add Vehicle
+</button>
 
 <div class="table-ctnr">
     @foreach (var vehicle in Model)
     {
         <div class="table-row">
-            <img src="@vehicle.ImgPath" />
-            <p>@vehicle.Year @vehicle.Make @vehicle.Model</p>
-
+            <div class="row-info">
+                <img src="@vehicle.ImgPath" />
+                <p>@vehicle.Year @vehicle.Make @vehicle.Model</p>
+            </div>
+            
             <div class="row-btns">
-                <button></button>
+                <button type="button">
+                    <i class="fas fa-pencil-alt fa-lg"></i>
+                </button>
+                <button type="button">
+                    <i class="fas fa-trash-alt fa-lg"></i>
+                </button>
             </div>
         </div>
     }
 </div>
+
