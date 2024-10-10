@@ -22,5 +22,17 @@ namespace VehicleInventoryProj.Controllers
 
             return View(allVehicles);
         }
+
+        [HttpGet("/vehicles/{vehicle_id}")]
+        public IActionResult VehicleDetail(int vehicle_id)
+        {
+            var vehicle = _context.Vehicles.FirstOrDefault(m => m.VehicleId == vehicle_id);
+
+            if (vehicle == null) return NotFound();
+
+            return View(vehicle);
+        }
+
+
     }
 }
