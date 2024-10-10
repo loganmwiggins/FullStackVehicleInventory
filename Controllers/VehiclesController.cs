@@ -27,7 +27,7 @@ namespace VehicleInventoryProj.Controllers
         // Action to handle GET requests to /vehicles/{vehicle_id}
         // Retrieves details of a specific vehicle based on its vehicle_id
         [HttpGet("/vehicles/{vehicle_id}")]
-        public IActionResult VehicleDetails(int vehicle_id)
+        public IActionResult VehicleDetail(int vehicle_id)
         {
             var vehicle = _context.Vehicles.FirstOrDefault(m => m.VehicleId == vehicle_id);
 
