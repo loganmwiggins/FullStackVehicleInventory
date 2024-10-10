@@ -110,6 +110,21 @@ namespace VehicleInventoryProj.Models
                     HwyMPG = 35, 
                     InStock = true, 
                     ColorId = 6 
+                },
+                new Vehicle
+                {
+                    VehicleId = 6,
+                    Make = "Toyota",
+                    Model = "bZ4X",
+                    Year = 2024,
+                    Build = "SUV",
+                    FuelType = "Hyrbid",
+                    MSRP = 40970,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/highlanderhybrid/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 0,
+                    HwyMPG = 0,
+                    InStock = true,
+                    ColorId = 6
                 }
             );
         }

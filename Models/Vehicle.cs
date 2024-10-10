@@ -30,10 +30,10 @@ namespace VehicleInventoryProj.Models
         public string? ImgPath { get; set; }
 
         [Column("city_mpg")]
-        public required int CityMPG { get; set; }
+        public int? CityMPG { get; set; }
 
         [Column("hwy_mpg")]
-        public required int HwyMPG { get; set; }
+        public int? HwyMPG { get; set; }
 
         [Column("in_stock")]
         public required bool InStock { get; set; }
