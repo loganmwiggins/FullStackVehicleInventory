@@ -1,20 +1,20 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .poster {
@@ -53,6 +53,134 @@ ul {
 
 
 /* HOME PAGE CSS*/
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    color: #333;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Ensures the container takes available space */
+}
+
+/* Hero Section Styles */
+.hero-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+    .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        font-weight: 300;
+    }
+
+/* Add spacing between sections */
+.section-spacing {
+    margin-bottom: 50px;
+}
+
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background-color: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+    .cta-btn:hover {
+        background-color: #ffa500;
+        color: white;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+/* Services Section */
+.section-divider {
+    width: 100px;
+    border: 2px solid #007bff;
+    margin: 20px auto;
+}
+
+.box {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.box h4 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Parallax Section */
+.parallax-section {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    height: 400px;
+}
+
+.parallax-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 
 
 
