@@ -41,11 +41,76 @@ namespace VehicleInventoryProj.Models
 
             // Manually seed Vehicles table   
             modelBuilder.Entity<Vehicle>().HasData(
-                new Vehicle { VehicleId = 1, Make = "Toyota", Model = "Corolla", Year = 2025, Build = "Sedan", FuelType = "Gas", MSRP = 22175, CityMPG = 32, HwyMPG = 41, InStock = true, ColorId = 1 },
-                new Vehicle { VehicleId = 2, Make = "Toyota", Model = "Tacoma", Year = 2024, Build = "Truck", FuelType = "Gas", MSRP = 31500, CityMPG = 21, HwyMPG = 26, InStock = true, ColorId = 2 },
-                new Vehicle { VehicleId = 3, Make = "Toyota", Model = "Prius", Year = 2024, Build = "Sedan", FuelType = "Hybrid", MSRP = 27950, CityMPG = 57, HwyMPG = 56, InStock = false, ColorId = 3 },
-                new Vehicle { VehicleId = 4, Make = "Toyota", Model = "Tundra", Year = 2024, Build = "Truck", FuelType = "Gas", MSRP = 40090, CityMPG = 18, HwyMPG = 23, InStock = false, ColorId = 4 },
-                new Vehicle { VehicleId = 5, Make = "Toyota", Model = "Highlander Hybrid", Year = 2024, Build = "SUV", FuelType = "Hyrbid", MSRP = 40970, CityMPG = 36, HwyMPG = 35, InStock = true, ColorId = 6 }
+                new Vehicle { 
+                    VehicleId = 1, 
+                    Make = "Toyota", 
+                    Model = "Corolla", 
+                    Year = 2025, 
+                    Build = "Sedan", 
+                    FuelType = "Gas", 
+                    MSRP = 22175, 
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/corolla/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 32, 
+                    HwyMPG = 41, 
+                    InStock = true, 
+                    ColorId = 1 
+                },
+                new Vehicle { 
+                    VehicleId = 2, 
+                    Make = "Toyota", 
+                    Model = "Tacoma", 
+                    Year = 2024, 
+                    Build = "Truck", 
+                    FuelType = "Gas", 
+                    MSRP = 31500, 
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/tacoma/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 21, 
+                    HwyMPG = 26, 
+                    InStock = true, 
+                    ColorId = 2 
+                },
+                new Vehicle { 
+                    VehicleId = 3, 
+                    Make = "Toyota", 
+                    Model = "Prius", 
+                    Year = 2024, 
+                    Build = "Sedan", 
+                    FuelType = "Hybrid", 
+                    MSRP = 27950, 
+                    ImgPath= "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/prius/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 57,
+                    HwyMPG = 56, 
+                    InStock = false, 
+                    ColorId = 3 
+                },
+                new Vehicle { 
+                    VehicleId = 4, 
+                    Make = "Toyota", 
+                    Model = "Tundra", 
+                    Year = 2024, 
+                    Build = "Truck", 
+                    FuelType = "Gas", 
+                    MSRP = 40090, 
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/tundra/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 18, 
+                    HwyMPG = 23, 
+                    InStock = false, 
+                    ColorId = 4 
+                },
+                new Vehicle { 
+                    VehicleId = 5, 
+                    Make = "Toyota", 
+                    Model = "Highlander Hybrid", 
+                    Year = 2024, 
+                    Build = "SUV", 
+                    FuelType = "Hyrbid",
+                    MSRP = 40970,
+                    ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/highlanderhybrid/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                    CityMPG = 36, 
+                    HwyMPG = 35, 
+                    InStock = true, 
+                    ColorId = 6 
+                }
             );
         }
     }
