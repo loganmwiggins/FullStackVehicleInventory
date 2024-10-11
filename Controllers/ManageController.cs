@@ -17,12 +17,64 @@ namespace VehicleInventoryProj.Controllers
 
         // View Routing
         [HttpGet("/manage")]
-        public IActionResult Index()
+        public IActionResult Index(string make, string model, string year, string build, string fuelType)
         {
-            List<Vehicle> allVehicles = _context.Vehicles.ToList();
+            // Get all vehicles from the database
+            var allVehicles = _context.Vehicles.ToList();
 
-            return View(allVehicles);
+            // Get the distinct makes, models, years, builds, and fuel types for the dropdowns
+            var makes = allVehicles.Select(v => v.Make).Distinct().ToList();
+            var models = allVehicles.Select(v => v.Model).Distinct().ToList();
+            var years = allVehicles.Select(v => v.Year.ToString()).Distinct().ToList();
+            var builds = allVehicles.Select(v => v.Build).Distinct().ToList();
+            var fuelTypes = allVehicles.Select(v => v.FuelType).Distinct().ToList();
+
+            // Filter the vehicle list based on the user's selection
+            var filteredVehicles = allVehicles.AsQueryable();
+
+            if (!string.IsNullOrEmpty(make))
+            {
+                filteredVehicles = filteredVehicles.Where(v => v.Make == make);
+            }
+
+            if (!string.IsNullOrEmpty(model))
+            {
+                filteredVehicles = filteredVehicles.Where(v => v.Model == model);
+            }
+
+            if (!string.IsNullOrEmpty(year))
+            {
+                filteredVehicles = filteredVehicles.Where(v => v.Year.ToString() == year);
+            }
+
+            if (!string.IsNullOrEmpty(build))
+            {
+                filteredVehicles = filteredVehicles.Where(v => v.Build == build);
+            }
+
+            if (!string.IsNullOrEmpty(fuelType))
+            {
+                filteredVehicles = filteredVehicles.Where(v => v.FuelType == fuelType);
+            }
+
+            // Pass the filtered vehicles and dropdown options via ViewBag
+            ViewBag.Vehicles = filteredVehicles.ToList();
+            ViewBag.Makes = makes;
+            ViewBag.Models = models;
+            ViewBag.Years = years;
+            ViewBag.Builds = builds;
+            ViewBag.FuelTypes = fuelTypes;
+
+            // Pass the selected values back to the view to retain the selected filter
+            ViewBag.SelectedMake = make;
+            ViewBag.SelectedModel = model;
+            ViewBag.SelectedYear = year;
+            ViewBag.SelectedBuild = build;
+            ViewBag.SelectedFuelType = fuelType;
+
+            return View(ViewBag.Vehicles);
         }
+
 
         [HttpGet("/manage/{vehicleId?}")]
         public async Task<IActionResult> EditVehicle(int? vehicleId)
