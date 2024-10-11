@@ -1,14 +1,16 @@
 ﻿@{
     var vehicle = ViewBag.Vehicle as VehicleInventoryProj.Models.Vehicle;
     var color = ViewBag.Color as VehicleInventoryProj.Models.Color;
+    var source = ViewBag.Source as string ?? "vehicles"; // Default to "vehicles" if no source is provided
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<!-- Back Arrow below the navbar -->
-<a href="/vehicles" class="btn btn-link text-dark back-arrow" aria-label="Back to All Vehicles">
+<!-- Conditional Back Arrow -->
+<a href="@(source == "match" ? "/match/FindYourMatch" : "/vehicles")" class="btn btn-link text-dark back-arrow" aria-label="Back">
     <i class="fas fa-arrow-left fa-2x"></i>
 </a>
+
 
 <!-- Header Section -->
 <div class="header mb-4 text-center">

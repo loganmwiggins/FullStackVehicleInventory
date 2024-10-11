@@ -1,0 +1,69 @@
+﻿<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4">Find Your Perfect Vehicle Match</h2>
+
+        <form method="post" asp-action="ProcessMatch">
+            <!-- Question 1: What are you looking for most in a vehicle? -->
+            <div class="form-group">
+                <label for="VehicleType"><strong>What are you looking for most in a vehicle?</strong></label>
+                <select id="VehicleType" name="VehicleType" class="form-control">
+                    <option value="">Select...</option>
+                    <option value="Space">Space</option> <!-- (Truck or SUV) -->
+                    <option value="Performance">Performance</option> <!-- (Sedan or Truck) -->
+                    <option value="Luxury">Luxury</option> <!-- (Sedan or SUV) -->
+                </select>
+            </div>
+
+            <!-- Question 2: What is your typical driving environment? -->
+            <div class="form-group">
+                <label for="DrivingEnvironment"><strong>What is your typical driving environment?</strong></label>
+                <select id="DrivingEnvironment" name="DrivingEnvironment" class="form-control">
+                    <option value="">Select...</option>
+                    <option value="City">City</option> <!-- (Sedan or Hybrid) -->
+                    <option value="Off-road">Off-road</option> <!-- (Truck or SUV) -->
+                    <option value="Highway">Highway</option> <!-- (Sedan with >30 MPG) -->
+                </select>
+            </div>
+
+            <!-- Question 3: What fuel type do you prefer? -->
+            <div class="form-group">
+                <label for="FuelType"><strong>What fuel type do you prefer?</strong></label>
+                <select id="FuelType" name="FuelType" class="form-control">
+                    <option value="">Select...</option>
+                    <option value="Gas">Gasoline</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+
+            <!-- Question 4: What does your budget look like? -->
+            <div class="form-group">
+                <label for="Budget"><strong>What does your budget look like?</strong></label>
+                <select id="Budget" name="Budget" class="form-control">
+                    <option value="">Select...</option>
+                    <option value="Under20k">Under $20,000</option>
+                    <option value="20kTo40k">$20,000 - $40,000</option>
+                    <option value="Above40k">Above $40,000</option>
+                </select>
+            </div>
+
+            <!-- Question 5: How many passengers do you usually have? -->
+            <div class="form-group">
+                <label for="Passengers"><strong>How many passengers do you usually have?</strong></label>
+                <select id="Passengers" name="Passengers" class="form-control">
+                    <option value="">Select...</option>
+                    <option value="JustMe">Just me</option> <!-- (Sedans) -->
+                    <option value="1To3">1-3 passengers</option> <!-- (Sedan or SUV) -->
+                    <option value="4To7">4-7 passengers</option> <!-- (Sedan or Truck) -->
+                </select>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Find My Match</button>
+            </div>
+        </form>
+    </div>
+</div>
+

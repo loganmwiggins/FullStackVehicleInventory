@@ -82,7 +82,7 @@ namespace VehicleInventoryProj.Controllers
         // Action to handle GET requests to /vehicles/{vehicle_id}
         // Retrieves details of a specific vehicle based on its vehicle_id
         [HttpGet("/vehicles/{vehicle_id}")]
-        public IActionResult VehicleDetail(int vehicle_id)
+        public IActionResult VehicleDetail(int vehicle_id, string source = "vehicles")
         {
             var vehicle = _context.Vehicles.FirstOrDefault(m => m.VehicleId == vehicle_id);
 
@@ -94,7 +94,11 @@ namespace VehicleInventoryProj.Controllers
 
             ViewBag.Color = color;
             ViewBag.Vehicle = vehicle;
+            ViewBag.Source = source;  // Pass the source to the view
             return View();
         }
+
+
+
     }
 }

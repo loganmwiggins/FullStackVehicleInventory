@@ -38,7 +38,7 @@ namespace VehicleInventoryProj.Migrations
 
                     b.HasKey("ColorId");
 
-                    b.ToTable("colors");
+                    b.ToTable("colors", (string)null);
 
                     b.HasData(
                         new
@@ -134,7 +134,7 @@ namespace VehicleInventoryProj.Migrations
 
                     b.HasIndex("ColorId");
 
-                    b.ToTable("vehicles");
+                    b.ToTable("vehicles", (string)null);
 
                     b.HasData(
                         new
