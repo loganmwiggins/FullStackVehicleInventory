@@ -8,6 +8,7 @@
 <div class="header">
     <h1 class="display-4"><b>Manage Inventory</b></h1>
 </div>
+<br />
 
 <!-- Filter form -->
 <form method="get" asp-action="Index" asp-controller="Manage" class="mb-4">
@@ -86,16 +87,19 @@
         </div>
     </div>
     <br />
-    <div class="d-flex">
-        <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Filter</button>
-        <a href="/manage" class="btn btn-secondary">Reset Filters</a> 
+    <div class="btn-row-spaced">
+        <div>
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+            <a href="/manage" class="btn btn-secondary">Reset Filters</a>
+        </div>
+        <div>
+            <a class="btn btn-success" asp-controller="Manage" asp-action="EditVehicle" asp-route-vehicleId="null">
+                <i class="fas fa-plus fa-lg" style="margin-right: 5px;"></i>
+                Add Vehicle
+            </a>
+        </div>
     </div>
 </form>
-
-<a class="btn-blue" asp-controller="Manage" asp-action="EditVehicle" asp-route-vehicleId="null">
-    <i class="fas fa-plus fa-lg"></i>
-    Add Vehicle
-</a>
 
 <div class="table-ctnr mt-4">
     @foreach (var vehicle in Model)

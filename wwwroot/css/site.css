@@ -80,6 +80,24 @@ ul {
     transition: background .1s ease-in-out;
 }
 
+.btn-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.btn-row-spaced {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+}
 
 /* NAV */
 .navbar-nav {
@@ -221,12 +239,11 @@ ul {
 }
 
 
-/*ALL VEHICLES*/
+/* ALL VEHICLES */
 .filter-container {
     max-width: 100%;
-    margin-left: 5px;
     padding: 0px;
-    flex: 1; /* Ensures the container takes available space */
+    flex: 1;
 }
 
 
