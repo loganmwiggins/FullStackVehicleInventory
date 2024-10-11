@@ -88,10 +88,13 @@
         </div>
         <br />
         <button type="submit" class="btn btn-primary" style="margin-left: 5px;">Filter</button>
+        <a href="/vehicles" class="btn btn-secondary">Reset Filters</a> <!-- Reset Filters Button -->
     </form>
 </div>
 
 
+@if (((List<VehicleInventoryProj.Models.Vehicle>)ViewBag.Vehicles).Any())
+{
     <!-- Vehicle listing -->
     <div class="row">
         @foreach (var vehicle in ViewBag.Vehicles)
@@ -109,6 +112,15 @@
             </div>
         }
     </div>
+}
+else
+{
+    <div class="alert alert-warning mt-4">
+        <strong>No vehicles found!</strong> Try adjusting your filters.
+    </div>
+}
+
+
 </div>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
