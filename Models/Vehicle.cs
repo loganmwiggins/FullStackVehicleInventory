@@ -18,10 +18,10 @@ namespace VehicleInventoryProj.Models
         public required int Year { get; set; }
 
         [Column("build", TypeName = "varchar(50)")]
-        public required string Build { get; set; } // sedan, truck, suv, etc.
+        public required string Build { get; set; } // Sedan, Truck, SUV, Crossover, Minivan
 
         [Column("fuel_type", TypeName = "varchar(50)")]
-        public required string FuelType { get; set; } // gas, ev, hybrid
+        public required string FuelType { get; set; } // Gas, EV, Hybrid, Hydrogen
 
         [Column("msrp")]
         public required int MSRP { get; set; }
