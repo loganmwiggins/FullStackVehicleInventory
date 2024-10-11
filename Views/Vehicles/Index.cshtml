@@ -1,16 +1,100 @@
 ﻿@{
     ViewData["Title"] = "All Vehicles";
+    var selectedMake = ViewBag.SelectedMake as string;
+    var selectedModel = ViewBag.SelectedModel as string;
+    var selectedYear = ViewBag.SelectedYear as string;
 }
-@model List<Vehicle>
 
 <div class="header">
     <h1 class="display-4"><b>Explore All Vehicles</b></h1>
 </div>
 <br />
 
-<div class="container">
+<div class="filter-container">
+    <!-- Filter form -->
+    <form method="get" asp-action="Index" asp-controller="Vehicles" class="mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="model" class="form-label">Model</label>
+                <select name="model" id="model" class="form-select">
+                    <option value="">All Models</option>
+                    @foreach (var m in ViewBag.Models)
+                    {
+                        if (m == selectedModel)
+                        {
+                            <option value="@m" selected>@m</option>
+                        }
+                        else
+                        {
+                            <option value="@m">@m</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="year" class="form-label">Year</label>
+                <select name="year" id="year" class="form-select">
+                    <option value="">All Years</option>
+                    @foreach (var year in ViewBag.Years)
+                    {
+                        if (year == selectedYear)
+                        {
+                            <option value="@year" selected>@year</option>
+                        }
+                        else
+                        {
+                            <option value="@year">@year</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="build" class="form-label">Build</label>
+                <select name="build" id="build" class="form-select">
+                    <option value="">All Builds</option>
+                    @foreach (var build in ViewBag.Builds)
+                    {
+                        if (build == ViewBag.SelectedBuild)
+                        {
+                            <option value="@build" selected>@build</option>
+                        }
+                        else
+                        {
+                            <option value="@build">@build</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="fuelType" class="form-label">Fuel Type</label>
+                <select name="fuelType" id="fuelType" class="form-select">
+                    <option value="">All Fuel Types</option>
+                    @foreach (var fuelType in ViewBag.FuelTypes)
+                    {
+                        if (fuelType == ViewBag.SelectedFuelType)
+                        {
+                            <option value="@fuelType" selected>@fuelType</option>
+                        }
+                        else
+                        {
+                            <option value="@fuelType">@fuelType</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" style="margin-left: 5px;">Filter</button>
+    </form>
+</div>
+
+
+    <!-- Vehicle listing -->
     <div class="row">
-        @foreach (var vehicle in Model)
+        @foreach (var vehicle in ViewBag.Vehicles)
         {
             <div class="col-lg-3 col-md-6 mb-4">
                 <a asp-controller="Vehicles" asp-action="VehicleDetail" asp-route-vehicle_id="@vehicle.VehicleId" class="text-decoration-none">
@@ -29,18 +113,14 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<!-- Custom CSS :( -->
+<!-- Custom CSS :(-->
 <style>
-    /* Hover effect for vehicle cards */
     .vehicle-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-        /* Apply hover effect to the card itself */
-        .vehicle-card:hover {
-            transform: scale(1.05); /* Slightly enlarge the card */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
-        }
-
+    .vehicle-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 </style>
