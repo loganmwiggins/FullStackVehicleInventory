@@ -41,7 +41,7 @@ namespace VehicleInventoryProj.Models
 
         [ForeignKey("Color")]
         [Column("color_id")]
-        public int ColorId { get; set; }
+        public int? ColorId { get; set; }
         public Color Color { get; set; } = null!;
     }
 }

@@ -235,14 +235,20 @@ ul {
     .row-btns {
         margin-right: 1rem;
 
-        button {
+        button, a {
             border: none;
             background: none;
             padding: 0;
             color: #555;
             transition: scale .1s ease-in-out;
+            cursor: pointer;
         }
         button:hover {
+            color: #333;
+            scale: 115%;
+            transition: scale, color .1s ease-in-out;
+        }
+        a:hover {
             color: #333;
             scale: 115%;
             transition: scale, color .1s ease-in-out;
@@ -350,6 +356,31 @@ ul {
 
 
 /* ADD/EDIT FORM */
+/*.edit-form {
+    display: flex;
+    flex-direction: column;
+    background: red;
+}
+
+.form-row {*/
+/*    width: 100%;*/
+    /*display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    background: red;
+}
+
+.input-w-label {
+    display: flex;
+    flex-direction: column !important;
+    max-width: 10px;
+    background: blue;
+}*/
+
+
+
+
 
 
 

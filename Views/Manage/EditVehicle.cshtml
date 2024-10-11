@@ -1,12 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Edit Vehicle";
 }
-@model List<Vehicle>
+@model Vehicle
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <div class="header">
-    @if (Model == null)
+    @if (Model?.VehicleId == null)
     {
         <h1 class="display-4"><b>Add Vehicle</b></h1>
     }
@@ -15,49 +15,104 @@
     }
 </div>
 
-<form action="/" method="post">
-    <input type="hidden" name="id" />
+<form asp-action="SubmitVehicle" method="post" class="edit-form">
+    <input type="hidden" name="VehicleId" value="@Model?.VehicleId" />
 
-    <label for="make">Make</label>
-    <input type="text" id="make" name="make" value="Toyota" />
+    <div class="form-row">
+        <div class="label-input">
+            <label for="make">Make</label>
+            <input type="text" id="make" name="Make" value="@Model?.Make" />
+        </div>
+        <div class="label-input">
+            <label for="model">Model</label>
+            <input type="text" id="model" name="Model" value="@Model?.Model" />
+        </div>
+        <div class="label-input">
+            <label for="year">Year</label>
+            <input type="number" id="year" name="Year" value="@Model?.Year" />
+        </div>
+    </div>
 
-    <label for="model">Model</label>
-    <input type="text" id="model" name="model" />
+    <div class="form-row">
+        <div class="label-input">
+            <label for="build">Build</label>
+            <select id="build" name="Build">
+                <option value="Sedan" selected="@(Model?.Build == "Sedan" ? "selected" : null)">Sedan</option>
+                <option value="Truck" selected="@(Model?.Build == "Truck" ? "selected" : null)">Truck</option>
+                <option value="SUV" selected="@(Model?.Build == "SUV" ? "selected" : null)">SUV</option>
+                <option value="Crossover" selected="@(Model?.Build == "Crossover" ? "selected" : null)">Crossover</option>
+                <option value="Minivan" selected="@(Model?.Build == "Minivan" ? "selected" : null)">Minivan</option>
+            </select>
+        </div>
+        <div class="label-input">
+            <label for="fuelType">Fuel Type</label>
+            <select id="fuelType" name="FuelType">
+                <option value="Gas" selected="@(Model?.FuelType == "Gas" ? "selected" : null)">Gas</option>
+                <option value="Electric" selected="@(Model?.FuelType == "Electric" ? "selected" : null)">Electric</option>
+                <option value="Hybrid" selected="@(Model?.FuelType == "Hybrid" ? "selected" : null)">Hybrid</option>
+                <option value="Hydrogen" selected="@(Model?.FuelType == "Hydrogen" ? "selected" : null)">Hydrogen</option>
+            </select>
+        </div>
+        <div class="label-input">
+            <label for="msrp">Starting MSRP</label>
+            <input type="number" id="msrp" name="MSRP" value="@Model?.MSRP" />
+        </div>
+    </div>
 
-    <label for="year">Year</label>
-    <input type="number" id="year" name="year" />
+    <input type="hidden" name="ImgPath" value="@Model?.ImgPath" />
 
-    <label for="build">Build</label>
-    <select id="build" name="build">
-        <option value="Sedan">Sedan</option>
-        <option value="Truck">Truck</option>
-        <option value="SUV">SUV</option>
-        <option value="Crossover">Crossover</option>
-        <option value="Minivan">Minivan</option>
-    </select>
-
-    <label for="fuelType">Fuel Type</label>
-    <select id="fuelType" name="fuelType">
-        <option value="Gas">Gas</option>
-        <option value="Electric">Electric</option>
-        <option value="Hybrid">Hybrid</option>
-        <option value="Hydrogen">Hydrogen</option>
-    </select>
-
-    <label for="msrp">Starting MSRP</label>
-    <input type="number" id="msrp" name="msrp" />
-
-    <input type="hidden" name="imgPath" />
-
-    <label for="cityMPG">City MPG</label>
-    <input type="number" id="cityMPG" name="cityMPG" />
-
-    <label for="hwyMPG">Highway MPG</label>
-    <input type="number" id="hwyMPG" name="hwyMPG" />
-
-    <label for="inStock" class="checkbox-label">
-        <input type="checkbox" id="inStock" name="inStock" /> In Stock
-    </label>
-
-    <button type="submit">Save Vehicle</button>
+    <div class="form-row">
+        <div class="label-input">
+            <label for="cityMPG">City MPG</label>
+            <input type="number" id="cityMPG" name="CityMPG" value="@Model?.CityMPG" />
+        </div>
+        <div class="label-input">
+            <label for="hwyMPG">Highway MPG</label>
+            <input type="number" id="hwyMPG" name="HwyMPG" value="@Model?.HwyMPG" />
+        </div>
+        <div class="label-input">
+            <label for="inStock" class="checkbox-label">
+                <input type="checkbox" id="inStock" name="InStock" @(Model?.InStock == true ? "checked" : "") /> In Stock
+            </label>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn-blue">Save</button>
 </form>
+
+
+@* Custom styles *@
+<style>
+    .edit-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .label-input {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /* max-width: fit-content; */
+    }
+
+    label {
+        color: grey;
+    }
+
+    input, select {
+        padding: .25rem .5rem;
+        border: 1px solid grey;
+        border-radius: .25rem;
+        font-size: 1.2rem;
+    }
+
+</style>
