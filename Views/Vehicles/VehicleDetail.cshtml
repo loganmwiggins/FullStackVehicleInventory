@@ -3,6 +3,8 @@
     var color = ViewBag.Color as VehicleInventoryProj.Models.Color;
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <!-- Back Arrow below the navbar -->
 <a href="/vehicles" class="btn btn-link text-dark back-arrow" aria-label="Back to All Vehicles">
     <i class="fas fa-arrow-left fa-2x"></i>
@@ -36,10 +38,8 @@
     </div>
 </div>
 
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<!-- Custom CSS -->
+<!-- STYLES -->
 <style>
     .back-arrow {
         position: relative;
@@ -48,16 +48,12 @@
         text-decoration: none;
     }
 
-        .back-arrow i {
-            color: #666;
-            transition: color 0.3s ease;
-        }
-
-        .back-arrow:hover i {
-            color: #333;
-        }
-
-    .header {
-        text-align: center;
+    .back-arrow i {
+        color: #666;
+        transition: color 0.3s ease;
     }
+
+    .back-arrow:hover i { color: #333; }
+
+    .header { text-align: center; }
 </style>
