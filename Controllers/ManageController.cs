@@ -24,6 +24,20 @@ namespace VehicleInventoryProj.Controllers
             return View(allVehicles);
         }
 
+        [HttpGet("/manage/{id}")]
+        public async Task<IActionResult> EditVehicle(int? vehicleId)
+        {
+            if (vehicleId == null)
+            {
+                return View(null);
+            }
+            else
+            {
+                Vehicle? vehicle = await _context.Vehicles.FindAsync(vehicleId);
+                return View(vehicle);
+            }
+        }
+
 
         // CRUD Functionality
         [HttpDelete]
@@ -36,6 +50,14 @@ namespace VehicleInventoryProj.Controllers
                 _context.Vehicles.Remove(vehicle);
                 await _context.SaveChangesAsync();
             }
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddVehicle()
+        {
+
 
             return NoContent();
         }

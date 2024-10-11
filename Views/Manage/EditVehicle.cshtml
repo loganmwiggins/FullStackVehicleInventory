@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Edit Vehicle";
+}
+@model List<Vehicle>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="header">
+    @if (Model == null)
+    {
+        <h1 class="display-4"><b>Add Vehicle</b></h1>
+    }
+    else {
+        <h1 class="display-4"><b>Edit Vehicle</b></h1>
+    }
+</div>
+
+<form action="/" method="post">
+    <input type="hidden" name="id" />
+
+    <label for="make">Make</label>
+    <input type="text" id="make" name="make" value="Toyota" />
+
+    <label for="model">Model</label>
+    <input type="text" id="model" name="model" />
+
+    <label for="year">Year</label>
+    <input type="number" id="year" name="year" />
+
+    <label for="build">Build</label>
+    <select id="build" name="build">
+        <option value="Sedan">Sedan</option>
+        <option value="Truck">Truck</option>
+        <option value="SUV">SUV</option>
+        <option value="Crossover">Crossover</option>
+        <option value="Minivan">Minivan</option>
+    </select>
+
+    <label for="fuelType">Fuel Type</label>
+    <select id="fuelType" name="fuelType">
+        <option value="Gas">Gas</option>
+        <option value="Electric">Electric</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Hydrogen">Hydrogen</option>
+    </select>
+
+    <label for="msrp">Starting MSRP</label>
+    <input type="number" id="msrp" name="msrp" />
+
+    <input type="hidden" name="imgPath" />
+
+    <label for="cityMPG">City MPG</label>
+    <input type="number" id="cityMPG" name="cityMPG" />
+
+    <label for="hwyMPG">Highway MPG</label>
+    <input type="number" id="hwyMPG" name="hwyMPG" />
+
+    <label for="inStock" class="checkbox-label">
+        <input type="checkbox" id="inStock" name="inStock" /> In Stock
+    </label>
+
+    <button type="submit">Save Vehicle</button>
+</form>

@@ -43,6 +43,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     gap: 1.5rem;
 
     h1 {
@@ -56,8 +57,10 @@ ul {
     align-items: center;
     gap: 1rem;
     font-size: 1.2rem;
+    text-decoration: none;
     background: #005aff;
     color: white;
+    max-width: fit-content;
     padding: .5rem 1rem;
     border: none;
     border-radius: .5rem;
@@ -66,8 +69,10 @@ ul {
 }
 .btn-blue:hover {
     background: #024bd1;
+    color: white;
     transition: background .1s ease-in-out;
 }
+
 
 /* NAV */
 .navbar-nav {
@@ -86,10 +91,7 @@ ul {
 }
 
 
-
-
-/* HOME PAGE CSS*/
-
+/* HOME PAGE */
 .container {
     max-width: 100%;
     margin: 0 auto;
@@ -258,15 +260,48 @@ ul {
         color: #333; /* Darken slightly on hover */
     }
 
-/* Center the header text */
-.header {
-    text-align: center;
-}
 
 
-.header {
-    text-align: center;
+
+/* VEHICLE CARDS CSS*/
+
+/* Hover effect for vehicle cards */
+.vehicle-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
 }
+
+    /* Apply hover effect to the card itself */
+    .vehicle-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+
+/*VEHICLE DETAILS CSS*/
+.back-arrow {
+    position: relative;
+    top: 20px; /* Move the arrow below the navbar */
+    left: 20px;
+    text-decoration: none;
+}
+
+    .back-arrow i {
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .back-arrow:hover i {
+        color: #333;
+    }
+
+
+
+
+/* ADD/EDIT FORM */
+
+
+
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
