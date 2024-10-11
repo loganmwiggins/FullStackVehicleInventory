@@ -38,7 +38,7 @@ namespace VehicleInventoryProj.Controllers
                     Build = "Sedan",
                     FuelType = "Gas",
                     MSRP = 0,
-                    ImgPath = string.Empty,
+                    ImgPath = "assets/null-car.png",
                     CityMPG = 0,
                     HwyMPG = 0,
                     InStock = false
