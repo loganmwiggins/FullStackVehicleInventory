@@ -30,6 +30,13 @@ body {
     margin-bottom: 60px;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Ensures the container takes available space */
+}
+
 .poster {
     max-width: 800px;
     max-height: 400px;
@@ -92,12 +99,7 @@ ul {
 
 
 /* HOME PAGE */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    flex: 1; /* Ensures the container takes available space */
-}
+
 
 .homepage-container {
     background-image: url('https://th.bing.com/th/id/OIP.-xX3cXM-WS_h3APgh8Q96AHaEo?rs=1&pid=ImgDetMain');
