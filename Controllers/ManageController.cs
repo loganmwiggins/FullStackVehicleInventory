@@ -90,7 +90,7 @@ namespace VehicleInventoryProj.Controllers
                     Build = "Sedan",
                     FuelType = "Gas",
                     MSRP = 0,
-                    ImgPath = "assets/null-car.png",
+                    ImgPath = string.Empty,
                     CityMPG = 0,
                     HwyMPG = 0,
                     InStock = false
@@ -114,14 +114,20 @@ namespace VehicleInventoryProj.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitVehicle(Vehicle vehicle)
         {
+            // Validate for no image path
+            if (string.IsNullOrEmpty(vehicle.ImgPath))
+            {
+                vehicle.ImgPath = "assets/null-car.png";
+            }
+
+            // Add new vehicle
             if (vehicle.VehicleId == 0)
             {
-                // Add new vehicle
                 _context.Vehicles.Add(vehicle);
             }
+            // Update existing vehicle
             else
             {
-                // Update existing vehicle
                 _context.Vehicles.Update(vehicle);
             }
 

@@ -59,8 +59,6 @@
         </div>
     </div>
 
-    <input type="hidden" name="ImgPath" value="@Model?.ImgPath" />
-
     <div class="form-row">
         <div class="label-input">
             <label for="cityMPG">City MPG</label>
@@ -72,8 +70,16 @@
         </div>
         <div class="label-input">
             <label for="inStock" class="checkbox-label">
-                <input type="checkbox" id="inStock" name="InStock" @(Model?.InStock == true ? "checked" : "") /> In Stock
+                In Stock &nbsp;
+                <input type="checkbox" id="inStock" name="InStock" @(Model?.InStock == true ? "checked" : "") /> 
             </label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="label-input">
+            <label for="ImgPath">Image URL</label>
+            <input type="text" name="ImgPath" value="@Model?.ImgPath" />
         </div>
     </div>
     
@@ -114,5 +120,4 @@
         border-radius: .25rem;
         font-size: 1.2rem;
     }
-
 </style>
