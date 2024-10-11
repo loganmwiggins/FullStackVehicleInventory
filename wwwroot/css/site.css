@@ -219,6 +219,16 @@ ul {
 }
 
 
+/*ALL VEHICLES*/
+.filter-container {
+    max-width: 100%;
+    margin-left: 5px;
+    padding: 0px;
+    flex: 1; /* Ensures the container takes available space */
+}
+
+
+
 /* MANAGE TABLE */
 .table-ctnr {
     display: flex;
