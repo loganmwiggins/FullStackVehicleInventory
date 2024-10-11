@@ -107,26 +107,36 @@
     </div>
 </form>
 
-<div class="table-ctnr mt-4">
-    @foreach (var vehicle in Model)
-    {
-        <div class="table-row">
-            <div class="row-info">
-                <img src="@vehicle.ImgPath" draggable="false" />
-                <p>@vehicle.Year @vehicle.Make @vehicle.Model</p>
+@if (((List<VehicleInventoryProj.Models.Vehicle>)ViewBag.Vehicles).Any())
+{
+    <div class="table-ctnr mt-4">
+        @foreach (var vehicle in Model)
+        {
+            <div class="table-row">
+                <div class="row-info">
+                    <img src="@vehicle.ImgPath" draggable="false" />
+                    <p>@vehicle.Year @vehicle.Make @vehicle.Model</p>
+                </div>
+
+                <div class="row-btns">
+                    <a asp-controller="Manage" asp-action="EditVehicle" asp-route-vehicleId="@vehicle.VehicleId">
+                        <i class="fas fa-pencil-alt fa-lg"></i>
+                    </a>
+                    <a onclick="deleteVehicle(@vehicle.VehicleId)">
+                        <i class="fas fa-trash-alt fa-lg"></i>
+                    </a>
+                </div>
             </div>
-            
-            <div class="row-btns">
-                <a asp-controller="Manage" asp-action="EditVehicle" asp-route-vehicleId="@vehicle.VehicleId">
-                    <i class="fas fa-pencil-alt fa-lg"></i>
-                </a>
-                <a onclick="deleteVehicle(@vehicle.VehicleId)">
-                    <i class="fas fa-trash-alt fa-lg"></i>
-                </a>
-            </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-warning mt-4">
+        <strong>No vehicles found!</strong> Try adjusting your filters.
+    </div>
+}
+
 
 <!-- JavaScript -->
 <script>
