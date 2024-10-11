@@ -89,12 +89,18 @@
     <br />
     <div class="btn-row-spaced">
         <div>
-            <button type="submit" class="btn btn-primary">Apply Filters</button>
-            <a href="/manage" class="btn btn-secondary">Reset Filters</a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-filter fa-md" style="margin-right: 5px;"></i>
+                Apply Filters
+            </button>
+            <a href="/manage" class="btn btn-secondary">
+                <i class="fas fa-remove-format fa-md" style="margin-right: 5px;"></i>
+                Reset Filters
+            </a>
         </div>
         <div>
             <a class="btn btn-success" asp-controller="Manage" asp-action="EditVehicle" asp-route-vehicleId="null">
-                <i class="fas fa-plus fa-lg" style="margin-right: 5px;"></i>
+                <i class="fas fa-plus fa-md" style="margin-right: 5px;"></i>
                 Add Vehicle
             </a>
         </div>
