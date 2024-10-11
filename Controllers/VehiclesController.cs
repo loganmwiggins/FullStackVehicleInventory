@@ -35,6 +35,5 @@ namespace VehicleInventoryProj.Controllers
 
             return View(vehicle);
         }
-
     }
 }
