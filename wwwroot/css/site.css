@@ -93,9 +93,9 @@ ul {
 
 /* HOME PAGE */
 .container {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 20px;
     flex: 1; /* Ensures the container takes available space */
 }
 
