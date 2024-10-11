@@ -24,22 +24,60 @@ namespace VehicleInventoryProj.Controllers
             return View(allVehicles);
         }
 
-        [HttpGet("/manage/{id}")]
+        [HttpGet("/manage/{vehicleId?}")]
         public async Task<IActionResult> EditVehicle(int? vehicleId)
         {
             if (vehicleId == null)
             {
-                return View(null);
+                return View(new Vehicle
+                {
+                    VehicleId = 0,
+                    Make = string.Empty,
+                    Model = string.Empty,
+                    Year = DateTime.Now.Year,
+                    Build = "Sedan",
+                    FuelType = "Gas",
+                    MSRP = 0,
+                    ImgPath = string.Empty,
+                    CityMPG = 0,
+                    HwyMPG = 0,
+                    InStock = false
+                });
             }
-            else
+
+            Vehicle? vehicle = await _context.Vehicles.FindAsync(vehicleId);
+
+            if (vehicle == null)
             {
-                Vehicle? vehicle = await _context.Vehicles.FindAsync(vehicleId);
-                return View(vehicle);
+                return NotFound();
             }
+
+            return View(vehicle);
         }
 
 
+
+
         // CRUD Functionality
+        [HttpPost]
+        public async Task<IActionResult> SubmitVehicle(Vehicle vehicle)
+        {
+            if (vehicle.VehicleId == 0)
+            {
+                // Add new vehicle
+                _context.Vehicles.Add(vehicle);
+            }
+            else
+            {
+                // Update existing vehicle
+                _context.Vehicles.Update(vehicle);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+
         [HttpDelete]
         public async Task<IActionResult> DeleteVehicle(int vehicleId) 
         {
@@ -54,12 +92,6 @@ namespace VehicleInventoryProj.Controllers
             return NoContent();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddVehicle()
-        {
-
-
-            return NoContent();
-        }
+        
     }
 }

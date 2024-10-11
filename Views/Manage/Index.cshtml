@@ -24,12 +24,12 @@
             </div>
             
             <div class="row-btns">
-                <button type="button">
+                <a asp-controller="Manage" asp-action="EditVehicle" asp-route-vehicleId="@vehicle.VehicleId">
                     <i class="fas fa-pencil-alt fa-lg"></i>
-                </button>
-                <button type="button" onclick="deleteVehicle(@vehicle.VehicleId)">
+                </a>
+                <a onclick="deleteVehicle(@vehicle.VehicleId)">
                     <i class="fas fa-trash-alt fa-lg"></i>
-                </button>
+                </a>
             </div>
         </div>
     }
