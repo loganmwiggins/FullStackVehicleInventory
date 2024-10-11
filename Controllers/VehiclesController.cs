@@ -88,7 +88,13 @@ namespace VehicleInventoryProj.Controllers
 
             if (vehicle == null) return NotFound();
 
-            return View(vehicle);
+            var color = vehicle.ColorId.HasValue
+                ? _context.Colors.FirstOrDefault(c => c.ColorId == vehicle.ColorId)
+                : null;
+
+            ViewBag.Color = color;
+            ViewBag.Vehicle = vehicle;
+            return View();
         }
     }
 }

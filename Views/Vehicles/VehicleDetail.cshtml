@@ -1,65 +1,62 @@
-﻿@model Vehicle
-@{
-    ViewData["Title"] = $"{Model.Make} {Model.Model} Details";
+﻿@{
+    var vehicle = ViewBag.Vehicle as VehicleInventoryProj.Models.Vehicle;
+    var color = ViewBag.Color as VehicleInventoryProj.Models.Color;
 }
 
-    <!-- Back Arrow below the navbar -->
-    <a href="/vehicles" class="btn btn-link text-dark back-arrow" aria-label="Back to All Vehicles">
-        <i class="fas fa-arrow-left fa-2x"></i>
-    </a>
+<!-- Back Arrow below the navbar -->
+<a href="/vehicles" class="btn btn-link text-dark back-arrow" aria-label="Back to All Vehicles">
+    <i class="fas fa-arrow-left fa-2x"></i>
+</a>
 
-    <!-- Header Section -->
-    <div class="header mb-4 text-center">
-        <h1 class="display-4"><b>@Model.Year @Model.Make @Model.Model</b></h1>
-    </div>
+<!-- Header Section -->
+<div class="header mb-4 text-center">
+    <h1 class="display-4"><b>@vehicle.Year @vehicle.Make @vehicle.Model</b></h1>
+</div>
 
-    <!-- Vehicle Image and Information -->
-    <div class="row">
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <!-- Centered image using flexbox -->
-            <img src="@Model.ImgPath" class="img-fluid" style="max-width: 80%; height: auto;" alt="@Model.Make @Model.Model" draggable="false">
-        </div>
-        <div class="col-md-6">
-            <h2>Details</h2>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Make:</strong> @Model.Make</li>
-                <li class="list-group-item"><strong>Model:</strong> @Model.Model</li>
-                <li class="list-group-item"><strong>Year:</strong> @Model.Year</li>
-                <li class="list-group-item"><strong>Fuel Type:</strong> @Model.FuelType</li>
-                <li class="list-group-item"><strong>Build:</strong> @Model.Build</li>
-                <li class="list-group-item"><strong>MPG (City):</strong> @Model.CityMPG MPG</li>
-                <li class="list-group-item"><strong>MPG (Highway):</strong> @Model.HwyMPG MPG</li>
-                <li class="list-group-item"><strong>MSRP:</strong> @Model.MSRP.ToString("C")</li>
-                <li class="list-group-item"><strong>In Stock:</strong> @(Model.InStock ? "Yes" : "No")</li>
-            </ul>
-        </div>
+<!-- Vehicle Image and Information -->
+<div class="row">
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <img src="@vehicle.ImgPath" class="img-fluid" style="max-width: 80%; height: auto;" alt="@vehicle.Make @vehicle.Model" draggable="false">
     </div>
+    <div class="col-md-6">
+        <h2>Details</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Make:</strong> @vehicle.Make</li>
+            <li class="list-group-item"><strong>Model:</strong> @vehicle.Model</li>
+            <li class="list-group-item"><strong>Year:</strong> @vehicle.Year</li>
+            <li class="list-group-item"><strong>Fuel Type:</strong> @vehicle.FuelType</li>
+            <li class="list-group-item"><strong>Build:</strong> @vehicle.Build</li>
+            <li class="list-group-item"><strong>Color:</strong> @(color != null ? color.Name : "Not Specified")</li>
+            <li class="list-group-item"><strong>MPG (City):</strong> @vehicle.CityMPG MPG</li>
+            <li class="list-group-item"><strong>MPG (Highway):</strong> @vehicle.HwyMPG MPG</li>
+            <li class="list-group-item"><strong>MSRP:</strong> @vehicle.MSRP.ToString("C")</li>
+            <li class="list-group-item"><strong>In Stock:</strong> @(vehicle.InStock ? "Yes" : "No")</li>
+
+        </ul>
+    </div>
+</div>
 
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<!-- Custom CSS :( -->
+<!-- Custom CSS -->
 <style>
-    /* Position the back arrow below the navbar */
     .back-arrow {
         position: relative;
-        top: 20px; /* Move the arrow below the navbar */
+        top: 20px;
         left: 20px;
         text-decoration: none;
     }
 
-        /* Lighten the arrow color */
         .back-arrow i {
-            color: #666; /* Lighter gray color for the arrow */
+            color: #666;
             transition: color 0.3s ease;
         }
 
-        /* Hover effect: slightly darken the arrow on hover */
         .back-arrow:hover i {
-            color: #333; /* Darken slightly on hover */
+            color: #333;
         }
 
-    /* Center the header text */
     .header {
         text-align: center;
     }
