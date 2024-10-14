@@ -16,7 +16,7 @@
 </div>
 <br />
 
-<form asp-action="SubmitVehicle" method="post" class="edit-form">
+<form asp-action="SubmitVehicle" method="post" class="edit-form" onsubmit="return validateForm()">
     <input type="hidden" name="VehicleId" value="@Model?.VehicleId" />
 
     <div class="form-row">
@@ -125,3 +125,47 @@
 
     .btn { max-width: fit-content; }
 </style>
+<script>
+    function validateForm() {
+        const make = document.getElementById('make').value.trim();
+        const model = document.getElementById('model').value.trim();
+        const year = document.getElementById('year').value.trim();
+        const msrp = document.getElementById('msrp').value.trim();
+        const cityMPG = document.getElementById('cityMPG').value.trim();
+        const hwyMPG = document.getElementById('hwyMPG').value.trim();
+        const inStock = document.getElementById('inStock').checked;
+
+        if (!make) {
+            alert('Make cannot be empty');
+            return false;
+        }
+
+        if (!model) {
+            alert('Model cannot be empty');
+            return false;
+        }
+
+        if (!year) {
+            alert('Year cannot be empty');
+            return false;
+        }
+
+        if (msrp <= 0) {
+            alert('Starting MSRP cannot be empty');
+            return false;
+        }
+
+        if (cityMPG <= 0) {
+            alert('City MPG cannot be empty');
+            return false;
+        }
+
+        if (hwyMPG <= 0) {
+            alert('Highway MPG cannot be empty');
+            return false;
+        }
+
+        // If all fields are valid
+        return true;
+    }
+</script>
