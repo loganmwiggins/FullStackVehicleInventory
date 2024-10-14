@@ -1,17 +1,17 @@
-﻿﻿@{
+﻿@{
     ViewData["Title"] = "Find Your Match";
 }
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
-<div class="container mt-5">
-    <div class="card shadow-lg p-4">
-        <h2 class="text-center mb-4">Find Your Perfect Vehicle Match</h2>
+<div class="header">
+    <h1 class="display-4"><b>Find Your Perfect Vehicle Match</b></h1>
+</div>
+    <div class="card">
 
         <form method="post" asp-action="ProcessMatch">
             <!-- Question 1: What are you looking for most in a vehicle? -->
             <div class="form-group">
-                <label for="VehicleType"><strong>What are you looking for most in a vehicle?</strong></label>
+                <label for="VehicleType"><i class="fas fa-car icon"></i> What are you looking for most in a vehicle?</label>
                 <select id="VehicleType" name="VehicleType" class="form-control">
                     <option value="">Select...</option>
                     <option value="Space">Space</option> <!-- (Truck or SUV) -->
@@ -22,7 +22,7 @@
 
             <!-- Question 2: What is your typical driving environment? -->
             <div class="form-group">
-                <label for="DrivingEnvironment"><strong>What is your typical driving environment?</strong></label>
+                <label for="DrivingEnvironment"><i class="fas fa-road icon"></i> What is your typical driving environment?</label>
                 <select id="DrivingEnvironment" name="DrivingEnvironment" class="form-control">
                     <option value="">Select...</option>
                     <option value="City">City</option> <!-- (Sedan or Hybrid) -->
@@ -33,7 +33,7 @@
 
             <!-- Question 3: What fuel type do you prefer? -->
             <div class="form-group">
-                <label for="FuelType"><strong>What fuel type do you prefer?</strong></label>
+                <label for="FuelType"><i class="fas fa-gas-pump icon"></i> What fuel type do you prefer?</label>
                 <select id="FuelType" name="FuelType" class="form-control">
                     <option value="">Select...</option>
                     <option value="Gas">Gasoline</option>
@@ -44,7 +44,7 @@
 
             <!-- Question 4: What does your budget look like? -->
             <div class="form-group">
-                <label for="Budget"><strong>What does your budget look like?</strong></label>
+                <label for="Budget"><i class="fas fa-wallet icon"></i> What does your budget look like?</label>
                 <select id="Budget" name="Budget" class="form-control">
                     <option value="">Select...</option>
                     <option value="Under20k">Under $20,000</option>
@@ -55,7 +55,7 @@
 
             <!-- Question 5: How many passengers do you usually have? -->
             <div class="form-group">
-                <label for="Passengers"><strong>How many passengers do you usually have?</strong></label>
+                <label for="Passengers"><i class="fas fa-users icon"></i> How many passengers do you usually have?</label>
                 <select id="Passengers" name="Passengers" class="form-control">
                     <option value="">Select...</option>
                     <option value="JustMe">Just me</option> <!-- (Sedans) -->
@@ -64,9 +64,74 @@
                 </select>
             </div>
 
+            <!-- Submit Button -->
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg">Find My Match</button>
+                <button type="submit">Find My Match</button>
             </div>
         </form>
     </div>
-</div>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- Custom CSS -->
+<style>
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .card {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+
+
+    label {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* Custom Icon Styling */
+    .icon {
+        margin-right: 10px;
+        color: #333;
+    }
+</style>

@@ -19,7 +19,6 @@ namespace VehicleInventoryProj.Controllers
             // Load the form for users to fill out
             return View();
         }
-
         [HttpPost]
         public IActionResult ProcessMatch()
         {
@@ -30,6 +29,7 @@ namespace VehicleInventoryProj.Controllers
             var passengers = Request.Form["Passengers"].ToString();
 
             var vehicles = _context.Vehicles.AsQueryable();
+            bool isRelaxedMatching = false;
 
             // Apply filtering based on answers
             if (!string.IsNullOrEmpty(vehicleType))
@@ -101,10 +101,61 @@ namespace VehicleInventoryProj.Controllers
                 }
             }
 
-            // Return filtered vehicles with the "source" query parameter
             var filteredVehicles = vehicles.ToList();
-            ViewBag.Source = "match";  // Pass a source parameter indicating the source is the "Find Your Match" feature
+
+            // If no vehicles are found, relax the filters
+            if (filteredVehicles.Count == 0)
+            {
+                isRelaxedMatching = true; // Set flag to indicate relaxed matching
+                vehicles = _context.Vehicles.AsQueryable(); // Start over with all vehicles
+
+                // Apply only most important filters
+                if (!string.IsNullOrEmpty(vehicleType))
+                {
+                    switch (vehicleType)
+                    {
+                        case "Space":
+                            vehicles = vehicles.Where(v => v.Build == "Truck" || v.Build == "SUV");
+                            break;
+                        case "Performance":
+                            vehicles = vehicles.Where(v => v.Build == "Sedan" || v.Build == "Truck");
+                            break;
+                        case "Luxury":
+                            vehicles = vehicles.Where(v => v.Build == "Sedan" || v.Build == "SUV");
+                            break;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(budget))
+                {
+                    switch (budget)
+                    {
+                        case "Under20k":
+                            vehicles = vehicles.Where(v => v.MSRP < 20000);
+                            break;
+                        case "20kTo40k":
+                            vehicles = vehicles.Where(v => v.MSRP >= 20000 && v.MSRP <= 40000);
+                            break;
+                        case "Above40k":
+                            vehicles = vehicles.Where(v => v.MSRP > 40000);
+                            break;
+                    }
+                }
+
+                filteredVehicles = vehicles.ToList();
+
+                // If still no vehicles, show popular vehicles or vehicles in stock
+                if (filteredVehicles.Count == 0)
+                {
+                    filteredVehicles = _context.Vehicles.Where(v => v.InStock).Take(5).ToList(); // Show in-stock vehicles
+                }
+            }
+
+            // Return filtered vehicles
+            ViewBag.Source = "match";  // Pass a source parameter indicating source for back arrow use
+            ViewBag.IsRelaxedMatching = isRelaxedMatching; // Indicate if results are relaxed matching
             return View("MatchResults", filteredVehicles);
         }
+
     }
 }
