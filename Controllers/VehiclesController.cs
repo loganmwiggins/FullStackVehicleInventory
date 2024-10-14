@@ -20,7 +20,7 @@ namespace VehicleInventoryProj.Controllers
         // Retrieves a list of all vehicles from the database and returns it to the view
 
         [HttpGet("/vehicles")]
-        public IActionResult Index(string make, string model, string year, string build, string fuelType)
+        public IActionResult Index(string make, string model, string year, string build, string fuelType, string sortPrice)
         {
             // Get all vehicles from the database
             var allVehicles = _context.Vehicles.ToList();
@@ -59,9 +59,21 @@ namespace VehicleInventoryProj.Controllers
             {
                 filteredVehicles = filteredVehicles.Where(v => v.FuelType == fuelType);
             }
+            if (!string.IsNullOrEmpty(sortPrice))
+            {
+                if (sortPrice == "asc")
+                {
+                    filteredVehicles = filteredVehicles.OrderBy(v => v.MSRP);
+                }
+                else if (sortPrice == "desc")
+                {
+                    filteredVehicles = filteredVehicles.OrderByDescending(v => v.MSRP);
+                }
+            }
 
             // Pass the filtered vehicles and dropdown options
             ViewBag.Vehicles = filteredVehicles.ToList();
+            ViewBag.SortOrder = sortPrice;
             ViewBag.Makes = makes;
             ViewBag.Models = models;
             ViewBag.Years = years;
@@ -74,6 +86,8 @@ namespace VehicleInventoryProj.Controllers
             ViewBag.SelectedYear = year;
             ViewBag.SelectedBuild = build;
             ViewBag.SelectedFuelType = fuelType;
+            ViewBag.SelectedSortOrder = sortPrice;
+
 
             return View();
         }
