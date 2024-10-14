@@ -12,8 +12,8 @@ using VehicleInventoryProj.Models;
 namespace VehicleInventoryProj.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241010153539_MakeMPGFieldsNullable")]
-    partial class MakeMPGFieldsNullable
+    [Migration("20241014171314_InitializeDatabase")]
+    partial class InitializeDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,7 +94,7 @@ namespace VehicleInventoryProj.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("city_mpg");
 
-                    b.Property<int>("ColorId")
+                    b.Property<int?>("ColorId")
                         .HasColumnType("integer")
                         .HasColumnName("color_id");
 
@@ -219,16 +219,104 @@ namespace VehicleInventoryProj.Migrations
                         {
                             VehicleId = 6,
                             Build = "SUV",
-                            CityMPG = 0,
-                            ColorId = 6,
-                            FuelType = "Hyrbid",
-                            HwyMPG = 0,
-                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/highlanderhybrid/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            ColorId = 3,
+                            FuelType = "Electric",
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/bz4x/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
                             InStock = true,
-                            MSRP = 40970,
+                            MSRP = 43070,
                             Make = "Toyota",
                             Model = "bZ4X",
                             Year = 2024
+                        },
+                        new
+                        {
+                            VehicleId = 7,
+                            Build = "Sedan",
+                            CityMPG = 20,
+                            ColorId = 1,
+                            FuelType = "Gas",
+                            HwyMPG = 26,
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/gr86/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            InStock = true,
+                            MSRP = 29300,
+                            Make = "Toyota",
+                            Model = "GR86",
+                            Year = 2024
+                        },
+                        new
+                        {
+                            VehicleId = 8,
+                            Build = "Sedan",
+                            CityMPG = 23,
+                            ColorId = 3,
+                            FuelType = "Gas",
+                            HwyMPG = 31,
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/grsupra/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            InStock = false,
+                            MSRP = 56250,
+                            Make = "Toyota",
+                            Model = "GR Supra",
+                            Year = 2025
+                        },
+                        new
+                        {
+                            VehicleId = 9,
+                            Build = "Sedan",
+                            CityMPG = 76,
+                            ColorId = 4,
+                            FuelType = "Hydrogen",
+                            HwyMPG = 71,
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/mirai/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            InStock = true,
+                            MSRP = 50190,
+                            Make = "Toyota",
+                            Model = "Mirai",
+                            Year = 2025
+                        },
+                        new
+                        {
+                            VehicleId = 10,
+                            Build = "SUV",
+                            CityMPG = 40,
+                            ColorId = 3,
+                            FuelType = "Hybrid",
+                            HwyMPG = 37,
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2024/venza/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            InStock = true,
+                            MSRP = 35070,
+                            Make = "Toyota",
+                            Model = "Venza",
+                            Year = 2024
+                        },
+                        new
+                        {
+                            VehicleId = 11,
+                            Build = "Sedan",
+                            CityMPG = 42,
+                            ColorId = 5,
+                            FuelType = "Hybrid",
+                            HwyMPG = 41,
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/toyotacrown/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            InStock = true,
+                            MSRP = 41440,
+                            Make = "Toyota",
+                            Model = "Crown",
+                            Year = 2025
+                        },
+                        new
+                        {
+                            VehicleId = 12,
+                            Build = "SUV",
+                            CityMPG = 22,
+                            ColorId = 2,
+                            FuelType = "Hybrid",
+                            HwyMPG = 25,
+                            ImgPath = "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/jellies/relative/2025/landcruiser/base.png?bg=fff&fmt=webp&qlt=90&wid=345",
+                            InStock = true,
+                            MSRP = 56450,
+                            Make = "Toyota",
+                            Model = "Land Cruiser",
+                            Year = 2025
                         });
                 });
 
@@ -236,9 +324,7 @@ namespace VehicleInventoryProj.Migrations
                 {
                     b.HasOne("VehicleInventoryProj.Models.Color", "Color")
                         .WithMany("Vehicles")
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ColorId");
 
                     b.Navigation("Color");
                 });

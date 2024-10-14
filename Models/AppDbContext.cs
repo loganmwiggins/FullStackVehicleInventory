@@ -40,6 +40,7 @@ namespace VehicleInventoryProj.Models
             );
 
             // Manually seed Vehicles table   
+
             modelBuilder.Entity<Vehicle>().HasData(
                 new Vehicle { 
                     VehicleId = 1, 
