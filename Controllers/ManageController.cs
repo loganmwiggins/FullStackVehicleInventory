@@ -149,7 +149,5 @@ namespace VehicleInventoryProj.Controllers
 
             return NoContent();
         }
-
-        
     }
 }
