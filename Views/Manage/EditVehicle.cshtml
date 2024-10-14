@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <div class="header">
-    @if (Model?.VehicleId == null)
+    @if (Model?.VehicleId == 0)
     {
         <h1 class="display-4"><b>Add Vehicle</b></h1>
     }
@@ -14,6 +14,7 @@
         <h1 class="display-4"><b>Edit Vehicle</b></h1>
     }
 </div>
+<br />
 
 <form asp-action="SubmitVehicle" method="post" class="edit-form">
     <input type="hidden" name="VehicleId" value="@Model?.VehicleId" />
@@ -84,7 +85,9 @@
     </div>
     
     <br />
-    <button type="submit" class="btn btn-success">Save</button>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-lg btn-success">Save</button>
+    </div>
 </form>
 
 
@@ -93,6 +96,7 @@
     .edit-form {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1rem;
     }
 

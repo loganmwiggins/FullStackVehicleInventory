@@ -19,7 +19,7 @@ namespace VehicleInventoryProj.Controllers
             // Load the form for users to fill out
             return View();
         }
-        [HttpPost]
+
         [HttpPost]
         public IActionResult ProcessMatch()
         {
@@ -106,5 +106,5 @@ namespace VehicleInventoryProj.Controllers
             ViewBag.Source = "match";  // Pass a source parameter indicating the source is the "Find Your Match" feature
             return View("MatchResults", filteredVehicles);
         }
-}
     }
+}
