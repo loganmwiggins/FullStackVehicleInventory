@@ -87,6 +87,15 @@
                     }
                 </select>
             </div>
+            <div class="col-md-3">
+    <label for="sortPrice" class="form-label">Sort by Price</label>
+    <select name="sortPrice" id="sortPrice" class="form-select">
+        <option value="">@(string.IsNullOrEmpty(ViewBag.SortOrder) ? "selected" : "")No Sorting</option>
+        <option value="asc"> @(ViewBag.SortOrder == "asc" ? "selected" : "")Price: Low to High</option>
+        <option value="desc"> @(ViewBag.SortOrder == "desc" ? "selected" : "") selected Price: High to Low</option>
+    </select>
+</div>
+
         </div>
         <br />
         <div class="btn-row">
