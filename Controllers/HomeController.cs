@@ -26,4 +26,19 @@ namespace VehicleInventoryProj.Controllers
             return View();
         }
     }
-}
+    //public IActionResult Index()
+    //{
+    //    try
+    //    {
+    //        // Example: If you want to fetch some data from the database in the future:
+    //        // var someData = _context.SomeTable.ToList();
+
+    //        return View();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        _logger.LogError("Error occurred while loading the home page: {Error}", ex.Message);
+    //        return View("Error"); // Return a custom error view if something goes wrong
+        }
+    
+
